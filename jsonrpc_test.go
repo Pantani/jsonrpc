@@ -1,27 +1,28 @@
 package jsonrpc
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-func TestRpcRequests_fillDefaultValues(t *testing.T) {
+func TestRPCRequests_fillDefaultValues(t *testing.T) {
 	tests := []struct {
 		name string
-		rs   RpcRequests
-		want RpcRequests
+		rs   RPCRequests
+		want RPCRequests
 	}{
 		{
 			"test 1",
-			RpcRequests{{Method: "method1", Params: "params1"}},
-			RpcRequests{{Method: "method1", Params: "params1", JsonRpc: JsonRpcVersion, Id: "method1"}},
+			RPCRequests{{Method: "method1", Params: "params1"}},
+			RPCRequests{{Method: "method1", Params: "params1", JSONRPC: Version, ID: 1}},
 		}, {
 			"test 2",
-			RpcRequests{
+			RPCRequests{
 				{Method: "method1", Params: "params1"}, {Method: "method2", Params: "params2"}},
-			RpcRequests{
-				{Method: "method1", Params: "params1", JsonRpc: JsonRpcVersion, Id: "method1"},
-				{Method: "method2", Params: "params2", JsonRpc: JsonRpcVersion, Id: "method2"},
+			RPCRequests{
+				{Method: "method1", Params: "params1", JSONRPC: Version, ID: 2},
+				{Method: "method2", Params: "params2", JSONRPC: Version, ID: 3},
 			},
 		},
 	}
