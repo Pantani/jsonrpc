@@ -65,9 +65,9 @@ func InitRPCClient(baseURL string) Request {
 	}
 }
 
-// getObject bind the request result into the struct.
+// GetObject bind the request result into the struct.
 // It returns an error if occurs.
-func (r *RPCResponse) getObject(toType interface{}) error {
+func (r *RPCResponse) GetObject(toType interface{}) error {
 	js, err := json.Marshal(r.Result)
 	if err != nil {
 		return errors.E(err, "json-rpc getObject Marshal error", errors.Params{"obj": toType})
@@ -98,7 +98,7 @@ func (r *Request) RPCCall(result interface{}, method string, params interface{})
 			"error_code":    resp.Error.Code,
 			"error_message": resp.Error.Message})
 	}
-	return resp.getObject(result)
+	return resp.GetObject(result)
 }
 
 // RPCCallWithContext make a JSON-RPC request and bind the result into the generic interface passing the context.
@@ -119,7 +119,7 @@ func (r *Request) RPCCallWithContext(ctx context.Context, result interface{}, me
 			"error_code":    resp.Error.Code,
 			"error_message": resp.Error.Message})
 	}
-	return resp.getObject(result)
+	return resp.GetObject(result)
 }
 
 // RPCBatchCall make a batch of JSON-RPC requests.
