@@ -49,6 +49,22 @@ type (
 	}
 )
 
+// InitRPCClient initialize the rpc client.
+// It returns the rpc request object.
+func InitRPCClient(baseURL string) Request {
+	return Request{
+		request.Request{
+			Headers: map[string]string{
+				"Content-Type": "application/json",
+				"Accept":       "application/json",
+			},
+			HTTPClient:   request.DefaultClient,
+			ErrorHandler: request.DefaultErrorHandler,
+			BaseURL:      baseURL,
+		},
+	}
+}
+
 // getObject bind the request result into the struct.
 // It returns an error if occurs.
 func (r *RPCResponse) getObject(toType interface{}) error {
