@@ -1,3 +1,4 @@
+[![Go Reference](https://pkg.go.dev/badge/github.com/Pantani/jsonrpc.svg)](https://pkg.go.dev/github.com/Pantani/jsonrpc)
 [![codecov](https://codecov.io/gh/Pantani/jsonrpc/branch/master/graph/badge.svg?token=1LMRW3C0H7)](https://codecov.io/gh/Pantani/jsonrpc)
 
 # JSON-RPC request abstraction
