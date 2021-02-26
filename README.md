@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/Pantani/jsonrpc/branch/master/graph/badge.svg?token=1LMRW3C0H7)](https://codecov.io/gh/Pantani/jsonrpc)
+
 # JSON-RPC request abstraction
 
 Simple abstraction for JSON-RPC requests.
